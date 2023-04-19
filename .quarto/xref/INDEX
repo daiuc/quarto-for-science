@@ -1,0 +1,53 @@
+{
+  "materials/intro-to-quarto.qmd": {
+    "intro-to-quarto.html": "b0d7f483"
+  },
+  "index.qmd": {
+    "index.html": "0fa8613d"
+  },
+  "materials/01-intro-quarto.qmd": {
+    "01-intro-quarto.html": "de770728"
+  },
+  "materials/02-authoring.qmd": {
+    "02-authoring.html": "340e4c3a"
+  },
+  "materials/03-computation-editors.qmd": {
+    "03-computation-editors.html": "e2911e47"
+  },
+  "materials/04-static-documents.qmd": {
+    "04-static-documents.html": "9b68a842"
+  },
+  "materials/05-websites.qmd": {
+    "05-websites.html": "d1cde635"
+  },
+  "materials/static/custom-layout.qmd": {
+    "custom-layout.html": "2d4e3bc8"
+  },
+  "materials/static/fancy-footnotes.qmd": {
+    "fancy-footnotes.html": "d6f12399"
+  },
+  "materials/static/figure-layout.qmd": {
+    "figure-layout.html": "9e0afd80"
+  },
+  "materials/static/footnote.qmd": {
+    "footnote.html": "39327706"
+  },
+  "materials/static/sub-figure.qmd": {
+    "sub-figure.html": "fdb86efb"
+  },
+  "materials/static/title-slide.qmd": {
+    "title-slide.html": "fdb7ff4d"
+  },
+  "materials/static/title-slide2.qmd": {
+    "title-slide2.html": "c0ea83f4"
+  },
+  "materials/static/toc-1.qmd": {
+    "toc-1.html": "a76110cf"
+  },
+  "materials/static/vertical-align.qmd": {
+    "vertical-align.html": "e26860ca"
+  },
+  "materials/test-layout.qmd": {
+    "test-layout.html": "3a24b124"
+  }
+}

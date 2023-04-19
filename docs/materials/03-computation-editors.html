@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Quarto for science – computation-editors</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Quarto for science</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../materials/intro-to-quarto.html">
+ <span class="dropdown-text">Quarto for Science</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Teaching</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../materials/intro-to-quarto.html" class="sidebar-item-text sidebar-link">Quarto for Science</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a>
+  <ul class="collapse">
+  <li><a href="#execute-code" id="toc-execute-code" class="nav-link" data-scroll-target="#execute-code">Execute code</a></li>
+  <li><a href="#choose-your-engine" id="toc-choose-your-engine" class="nav-link" data-scroll-target="#choose-your-engine">Choose your engine</a></li>
+  <li><a href="#start-your-engine" id="toc-start-your-engine" class="nav-link" data-scroll-target="#start-your-engine">Start your engine!</a></li>
+  <li><a href="#knitr-code-cells" id="toc-knitr-code-cells" class="nav-link" data-scroll-target="#knitr-code-cells"><code>knitr</code> code cells</a></li>
+  <li><a href="#anatomy-of-a-code-chunk" id="toc-anatomy-of-a-code-chunk" class="nav-link" data-scroll-target="#anatomy-of-a-code-chunk">Anatomy of a code chunk</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#code-more-than-just-r" id="toc-code-more-than-just-r" class="nav-link" data-scroll-target="#code-more-than-just-r">Code, more than just R</a></li>
+  <li><a href="#create-code-chunks" id="toc-create-code-chunks" class="nav-link" data-scroll-target="#create-code-chunks">Create code chunks</a></li>
+  </ul></li>
+  <li><a href="#our-turn" id="toc-our-turn" class="nav-link" data-scroll-target="#our-turn"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg> Our turn</a>
+  <ul class="collapse">
+  <li><a href="#inline-code" id="toc-inline-code" class="nav-link" data-scroll-target="#inline-code">Inline code</a></li>
+  <li><a href="#inline-code-with-jupyter" id="toc-inline-code-with-jupyter" class="nav-link" data-scroll-target="#inline-code-with-jupyter">Inline code with <code>Jupyter</code></a></li>
+  </ul></li>
+  <li><a href="#our-turn-1" id="toc-our-turn-1" class="nav-link" data-scroll-target="#our-turn-1"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg> Our turn</a>
+  <ul class="collapse">
+  <li><a href="#code-chunks-options" id="toc-code-chunks-options" class="nav-link" data-scroll-target="#code-chunks-options">Code chunks options</a></li>
+  <li><a href="#quartos-hash-pipe" id="toc-quartos-hash-pipe" class="nav-link" data-scroll-target="#quartos-hash-pipe">Quarto’s hash pipe <code>#|</code></a></li>
+  <li><a href="#quarto-chunk-options" id="toc-quarto-chunk-options" class="nav-link" data-scroll-target="#quarto-chunk-options">Quarto chunk options</a></li>
+  <li><a href="#rmarkdown-vs-quarto" id="toc-rmarkdown-vs-quarto" class="nav-link" data-scroll-target="#rmarkdown-vs-quarto">RMarkdown vs Quarto</a></li>
+  <li><a href="#quarto-chunk-options-1" id="toc-quarto-chunk-options-1" class="nav-link" data-scroll-target="#quarto-chunk-options-1">Quarto chunk options</a></li>
+  <li><a href="#setup-chunk" id="toc-setup-chunk" class="nav-link" data-scroll-target="#setup-chunk">Setup Chunk</a></li>
+  <li><a href="#knitropts_chunk-defaults" id="toc-knitropts_chunk-defaults" class="nav-link" data-scroll-target="#knitropts_chunk-defaults"><code>knitr::opts_chunk</code> defaults</a></li>
+  <li><a href="#code-chunks-are-controllable" id="toc-code-chunks-are-controllable" class="nav-link" data-scroll-target="#code-chunks-are-controllable">Code chunks are controllable</a></li>
+  <li><a href="#theres-a-lot-of-options" id="toc-theres-a-lot-of-options" class="nav-link" data-scroll-target="#theres-a-lot-of-options">There’s a lot of options!</a></li>
+  <li><a href="#chunks-can-be-named" id="toc-chunks-can-be-named" class="nav-link" data-scroll-target="#chunks-can-be-named">Chunks can be named</a></li>
+  </ul></li>
+  <li><a href="#our-turn-2" id="toc-our-turn-2" class="nav-link" data-scroll-target="#our-turn-2"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg> Our Turn</a>
+  <ul class="collapse">
+  <li><a href="#chunk-names-good-and-bad" id="toc-chunk-names-good-and-bad" class="nav-link" data-scroll-target="#chunk-names-good-and-bad">Chunk names, good and bad</a></li>
+  <li><a href="#working-with-code" id="toc-working-with-code" class="nav-link" data-scroll-target="#working-with-code">Working with code</a></li>
+  <li><a href="#working-with-code-1" id="toc-working-with-code-1" class="nav-link" data-scroll-target="#working-with-code-1">Working with code</a></li>
+  <li><a href="#working-with-code-2" id="toc-working-with-code-2" class="nav-link" data-scroll-target="#working-with-code-2">Working with code</a></li>
+  <li><a href="#working-with-code-3" id="toc-working-with-code-3" class="nav-link" data-scroll-target="#working-with-code-3">Working with code</a></li>
+  <li><a href="#working-with-code-4" id="toc-working-with-code-4" class="nav-link" data-scroll-target="#working-with-code-4">Working with code</a></li>
+  </ul></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a>
+  <ul class="collapse">
+  <li><a href="#rstudio-quick-intro" id="toc-rstudio-quick-intro" class="nav-link" data-scroll-target="#rstudio-quick-intro">RStudio, quick intro</a></li>
+  <li><a href="#navigating-in-the-terminal" id="toc-navigating-in-the-terminal" class="nav-link" data-scroll-target="#navigating-in-the-terminal">Navigating in the terminal</a></li>
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a></li>
+  <li><a href="#yaml-auto-completion" id="toc-yaml-auto-completion" class="nav-link" data-scroll-target="#yaml-auto-completion">YAML Auto-completion</a></li>
+  <li><a href="#knitr-auto-completion" id="toc-knitr-auto-completion" class="nav-link" data-scroll-target="#knitr-auto-completion"><code>knitr</code> auto-completion</a></li>
+  <li><a href="#rstudio-visual-editor" id="toc-rstudio-visual-editor" class="nav-link" data-scroll-target="#rstudio-visual-editor">RStudio Visual Editor</a></li>
+  </ul></li>
+  <li><a href="#our-turn-3" id="toc-our-turn-3" class="nav-link" data-scroll-target="#our-turn-3"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg> Our turn</a>
+  <ul class="collapse">
+  <li><a href="#vs-code" id="toc-vs-code" class="nav-link" data-scroll-target="#vs-code">VS Code</a></li>
+  <li><a href="#vs-code-yaml" id="toc-vs-code-yaml" class="nav-link" data-scroll-target="#vs-code-yaml">VS Code YAML</a></li>
+  <li><a href="#vs-code-yaml-intelligence" id="toc-vs-code-yaml-intelligence" class="nav-link" data-scroll-target="#vs-code-yaml-intelligence">VS Code, YAML Intelligence</a></li>
+  <li><a href="#jupyterjupyter-lab" id="toc-jupyterjupyter-lab" class="nav-link" data-scroll-target="#jupyterjupyter-lab">Jupyter/Jupyter Lab</a></li>
+  <li><a href="#jupyter" id="toc-jupyter" class="nav-link" data-scroll-target="#jupyter">Jupyter</a></li>
+  <li><a href="#jupyter-yaml" id="toc-jupyter-yaml" class="nav-link" data-scroll-target="#jupyter-yaml">Jupyter YAML</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="section" class="level1" data-background-color="black" data-background-image="images/calculations.jpeg">
+<h1 data-background-color="black" data-background-image="images/calculations.jpeg"></h1>
+<p><span style="color: white; font-size: 250px;">03 - Code and Editors</span></p>
+</section>
+<section id="section-1" class="level1" data-background-color="#6a9c42">
+<h1 data-background-color="#6a9c42"></h1>
+<p><span style="color: white; font-size: 200px;">Code</span></p>
+<section id="execute-code" class="level2">
+<h2 class="anchored" data-anchor-id="execute-code">Execute code</h2>
+<p>One of the biggest similarities AND differences between Quarto and RMarkdown is how it handles native code.</p>
+<div class="incremental">
+<p>Quarto uses the <code>{knitr}</code> engine just like RMarkdown to execute R code natively, along with many other languages.</p>
+</div>
+<div class="incremental">
+<p>Quarto can <em>also</em> use the Jupyter engine to natively execute Julia, Python, or other languages that Jupyter supports.</p>
+<div class="r-stack">
+<p><img src="images/qmd-knitr.jpg" class="img-fluid"></p>
+<p><img src="images/qmd-jupyter.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="choose-your-engine" class="level2">
+<h2 class="anchored" data-anchor-id="choose-your-engine">Choose your engine</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>You can specify Jupyter to use defaults</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> jupyter</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p>Or a specific Python version</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> python3</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p>Or even a specific Jupyter Kernel!</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">jupyter</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">kernelspec</span><span class="kw">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"venvPython"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">language</span><span class="kw">:</span><span class="at"> </span><span class="st">"python"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">display_name</span><span class="kw">:</span><span class="at"> </span><span class="st">"Python 3.7 (venv Python)"</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>If R code is found first will default to <code>knitr</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p>Or can force using <code>knitr</code> if you’re mixing R/Python content or if your first code chunk is not R.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> knitr</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="start-your-engine" class="level2">
+<h2 class="anchored" data-anchor-id="start-your-engine">Start your engine!</h2>
+<p><img src="images/howard-speed.gif" class="img-fluid"></p>
+</section>
+<section id="knitr-code-cells" class="level2">
+<h2 class="anchored" data-anchor-id="knitr-code-cells"><code>knitr</code> code cells</h2>
+<p>There’s a lot of <code>knitr</code> options!</p>
+<p><a href="https://quarto.org/docs/reference/cells/cells-knitr.html">https://quarto.org/docs/reference/cells/cells-knitr.html</a></p>
+</section>
+<section id="anatomy-of-a-code-chunk" class="level2">
+<h2 class="anchored" data-anchor-id="anatomy-of-a-code-chunk">Anatomy of a code chunk</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: car-cyl</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(cyl)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Has 3x backticks on each end <code>```</code><br>
+</li>
+<li>Place engine (<code>r</code>) between curly braces <code>{r}</code><br>
+</li>
+<li>Place options underneath, behind the <code>#|</code> (hashpipe): <code>#| option1: value</code></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># label: example-code-introduction</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: fenced</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| output-location: column</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-airquality</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Temperature and ozone level.</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 37 rows containing non-finite values (`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 37 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="03-computation-editors_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="code-more-than-just-r" class="level2">
+<h2 class="anchored" data-anchor-id="code-more-than-just-r">Code, more than just R</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-polar</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "A line plot on a polar axis"</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  subplot_kw <span class="op">=</span> {<span class="st">'projection'</span>: <span class="st">'polar'</span>} </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>ax.plot(theta, r)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img src="images/polar-axis.png" class="img-fluid" width="650"></p>
+</div>
+</div>
+</section>
+<section id="create-code-chunks" class="level2">
+<h2 class="anchored" data-anchor-id="create-code-chunks">Create code chunks</h2>
+<ul>
+<li>You can manually type out code chunks: <code>```{r}</code></li>
+<li>the keyboard shortcut <kbd><code>Ctrl + Alt + I</code></kbd> (OS X: <kbd><code>Cmd + Option + I</code></kbd>)</li>
+<li>the Add Chunk command in the editor toolbar</li>
+</ul>
+<div class="incremental">
+<p>Or use the Command Palette: <kbd><code>Cmd + Shift + P</code></kbd>/<kbd><code>Ctrl + Shift + P</code></kbd></p>
+</div>
+</section>
+</section>
+<section id="our-turn" class="level1" data-background-color="#447099" data-transition="slide-in">
+<h1 data-background-color="#447099" data-transition="slide-in"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg> Our turn</h1>
+<ul>
+<li>Open <code>materials/workshop/03-computation/penguin-analysis.qmd</code></li>
+<li>Insert three total code chunks with the shortcut <kbd><code>Ctrl + Alt + I</code></kbd>
+<ul>
+<li>Chunk 1: load <code>tidyverse</code> and <code>palmerpenguins</code> R packages and print the <code>penguins</code> dataset with <code>glimpse()</code></li>
+<li>Chunk 3: Create a plot of body mass (x) by bill length (y)</li>
+<li>Render it!</li>
+</ul></li>
+</ul>
+<section id="inline-code" class="level2">
+<h2 class="anchored" data-anchor-id="inline-code">Inline code</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>The mtcars dataset has <span class="in">`r nrow(mtcars)`</span> rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="incremental">
+<p>The mtcars dataset has 32 rows</p>
+</div>
+<div class="incremental">
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>The mtcars dataset has an average miles/per gallon of <span class="in">`r mean(mtcars$mpg)`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="incremental">
+<p>The mtcars dataset has an average miles/per gallon of 20.090625</p>
+</div>
+<div class="incremental">
+<div class="cell">
+
+</div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fmt_mean &lt;- scales::number_format(accuracy = 0.1, suffix = " mpg")(mean(mtcars$mpg))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>The mtcars dataset has an fuel efficiency of <span class="in">`r fmt_mean`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="incremental">
+<p>The mtcars dataset has an average miles/per gallon of 20.1</p>
+</div>
+</section>
+<section id="inline-code-with-jupyter" class="level2">
+<h2 class="anchored" data-anchor-id="inline-code-with-jupyter">Inline code with <code>Jupyter</code></h2>
+<p>Pure Python/Julia Quarto documents via <code>engine: jupyter</code> can also do inline code, but this requires the use of <a href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html">IPython.display.Markdown</a> or the <a href="https://docs.julialang.org/en/v1/stdlib/Markdown/"><code>Markdown</code></a> package for Julia</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Julia</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Markdown</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>display(Markdown(<span class="st">"""</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="st">The radius of the circle is </span><span class="sc">{radius}</span><span class="st">.</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span>.<span class="bu">format</span>(radius <span class="op">=</span> radius)))</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{julia}</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>radius = <span class="dv">10</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>using Markdown</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>Markdown.parse(<span class="ot">"""</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="st">The radius of the circle is </span><span class="dt">$radius</span><span class="st">.</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="ot">"""</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="ot">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="our-turn-1" class="level1" data-background-color="#447099" data-transition="slide-in">
+<h1 data-background-color="#447099" data-transition="slide-in"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg> Our turn</h1>
+<ul>
+<li>Open <code>materials/workshop/03-authoring/inline-code.qmd</code></li>
+<li>Look through the source code, and then render it</li>
+<li>Check out the appearance and building up of inline code -&gt; inline output</li>
+<li>Try to add your own new calculations for inline reporting</li>
+</ul>
+<section id="code-chunks-options" class="level2">
+<h2 class="anchored" data-anchor-id="code-chunks-options">Code chunks options</h2>
+<p>All code chunk options at <a href="https://yihui.org/knitr/options/">yihui.org/knitr/options/</a></p>
+<div class="incremental">
+<p>If you’ve used RMarkdown before, you’re likely used to:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = "fenced", eval = TRUE}</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(mpg <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
+</div>
+</div>
+</div>
+<div class="incremental">
+<p>Quarto introduces the “hash pipe” in <code>#|</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(mpg <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="quartos-hash-pipe" class="level2">
+<h2 class="anchored" data-anchor-id="quartos-hash-pipe">Quarto’s hash pipe <code>#|</code></h2>
+<p><img src="images/hash-pipe.gif" class="img-fluid" width="800"></p>
+<p><a href="https://www.youtube.com/watch?v=_9BGLtqqkVI">Weezer - Hash Pipe</a></p>
+</section>
+<section id="quarto-chunk-options" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-chunk-options">Quarto chunk options</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Air Quality"</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: "A ggplot2 with temperature by ozone levels along with a trend line indicating the increase in temperature with increasing ozone levels."</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Ozone, Temp)) <span class="sc">+</span> </span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="03-computation-editors_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" alt="A ggplot2 with temperature by ozone levels along with a trend line indicating the increase in temperature with increasing ozone levels." width="672"></p>
+<p></p><figcaption class="figure-caption">Air Quality</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="rmarkdown-vs-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="rmarkdown-vs-quarto">RMarkdown vs Quarto</h2>
+<p>You <em>can</em> mix and match or use only R Markdown or Quarto style <code>knitr</code> options. However, note the difference between ‘naming’ of the chunk options, typically <code>one.two</code> vs <code>one-two</code>. The <code>one.two</code> exists for backwards compatibility and you should focus on <code>one-two</code> syntax.</p>
+<pre><code>fig.align vs fig-align
+fig.dpi vs fig-dpi</code></pre>
+<div class="incremental">
+<p>This syntax is preferred because it aligns with Pandoc, which uses <code>word1-word2</code> style</p>
+</div>
+<div class="incremental">
+<div class="cell" data-layout-align="left" data-fig.dpi="350">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align = "left"}</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-dpi: 350</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> disp, <span class="at">y =</span> mpg)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="03-computation-editors_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="quarto-chunk-options-1" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-chunk-options-1">Quarto chunk options</h2>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that if you prefer it is still possible to include chunk options on the first line (e.g.&nbsp;<code>```{r, echo = FALSE}</code>). That said, we recommend using the comment-based syntax to make documents more portable and consistent across execution engines as that syntax only works for backwards compatability with R/RMarkdown.</p>
+</div>
+</div>
+<div class="incremental">
+<blockquote class="blockquote">
+<p>Chunk options included this way use YAML syntax rather than R syntax for consistency with options provided in YAML front matter. You can still however use R code for option values by prefacing them with !expr. For example:</p>
+</blockquote>
+<pre><code>#| fig-cap: !expr paste("Air", "Quality")</code></pre>
+</div>
+</section>
+<section id="setup-chunk" class="level2">
+<h2 class="anchored" data-anchor-id="setup-chunk">Setup Chunk</h2>
+<p>A special chunk! There can ONLY be one chunk named <code>setup</code>. It typically is used to set up the default values for the <strong>entire document</strong> with <code>knitr::opts_chunk$set()</code> and loading global R packages.</p>
+<div class="incremental">
+<div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">comment =</span> <span class="st">'#&gt;'</span>, <span class="at">fig.width =</span> <span class="dv">6</span>, <span class="at">fig.height =</span> <span class="dv">6</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="incremental">
+<p>Quarto also introduces some of these as options for <code>execute:</code> in YAML, for similar concepts in other languages.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="knitropts_chunk-defaults" class="level2">
+<h2 class="anchored" data-anchor-id="knitropts_chunk-defaults"><code>knitr::opts_chunk</code> defaults</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">get</span>()[<span class="dv">1</span><span class="sc">:</span><span class="dv">27</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 27
+ $ eval         : logi TRUE
+ $ echo         : logi TRUE
+ $ results      : chr "markup"
+ $ tidy         : logi FALSE
+ $ tidy.opts    : NULL
+ $ collapse     : logi FALSE
+ $ prompt       : logi FALSE
+ $ comment      : logi NA
+ $ highlight    : logi TRUE
+ $ size         : chr "normalsize"
+ $ background   : chr "#F7F7F7"
+ $ strip.white  : 'AsIs' logi TRUE
+ $ cache        : logi FALSE
+ $ cache.path   : chr "03-computation-editors_cache/html/"
+ $ cache.vars   : NULL
+ $ cache.lazy   : logi TRUE
+ $ dependson    : NULL
+ $ autodep      : logi FALSE
+ $ cache.rebuild: logi FALSE
+ $ fig.keep     : chr "high"
+ $ fig.show     : chr "asis"
+ $ fig.align    : chr "default"
+ $ fig.path     : chr "03-computation-editors_files/figure-html/"
+ $ dev          : chr "png"
+ $ dev.args     : NULL
+ $ dpi          : int 96
+ $ fig.ext      : NULL</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">get</span>()[<span class="dv">28</span><span class="sc">:</span><span class="dv">53</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 26
+ $ fig.width : int 7
+ $ fig.height: int 5
+ $ fig.env   : chr "figure"
+ $ fig.cap   : NULL
+ $ fig.scap  : NULL
+ $ fig.lp    : chr "fig:"
+ $ fig.subcap: NULL
+ $ fig.pos   : chr ""
+ $ out.width : NULL
+ $ out.height: NULL
+ $ out.extra : NULL
+ $ fig.retina: num 2
+ $ external  : logi TRUE
+ $ sanitize  : logi FALSE
+ $ interval  : num 1
+ $ aniopts   : chr "controls,loop"
+ $ warning   : logi TRUE
+ $ error     : logi FALSE
+ $ message   : logi TRUE
+ $ render    : NULL
+ $ ref.label : NULL
+ $ child     : NULL
+ $ engine    : chr "R"
+ $ split     : logi FALSE
+ $ include   : logi TRUE
+ $ purl      : logi TRUE</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="code-chunks-are-controllable" class="level2">
+<h2 class="anchored" data-anchor-id="code-chunks-are-controllable">Code chunks are controllable</h2>
+<p>Some examples</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>fig-height: 4</code></td>
+<td>Plots generated from this chunk will have a height of 4 inches.</td>
+</tr>
+<tr class="even">
+<td><code>fig-width: 6</code></td>
+<td>Plots generated from this chunk will have a width of 6 inches.</td>
+</tr>
+<tr class="odd">
+<td><code>dpi: 150</code></td>
+<td>Plots generated will have a dots per inch (pixel density) of 150</td>
+</tr>
+<tr class="even">
+<td><code>echo: false</code></td>
+<td>Code will not be echoed (ie not shown)</td>
+</tr>
+<tr class="odd">
+<td><code>eval: false</code></td>
+<td>Nothing will be evaluated, but code still be printed</td>
+</tr>
+<tr class="even">
+<td><code>cache: true</code></td>
+<td>Results will be cached, and chunk will not be run in subsequent renders, unless code is changed.</td>
+</tr>
+<tr class="odd">
+<td><code>message: false</code></td>
+<td>No messages will be printed</td>
+</tr>
+<tr class="even">
+<td><code>warning: false</code></td>
+<td>No warnings will be printed</td>
+</tr>
+<tr class="odd">
+<td><code>include: false</code></td>
+<td>No ouputs/echo/messages/etc will be returned</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="theres-a-lot-of-options" class="level2">
+<h2 class="anchored" data-anchor-id="theres-a-lot-of-options">There’s a lot of options!</h2>
+<p><a href="https://quarto.org/docs/reference/cells/cells-knitr.html">https://quarto.org/docs/reference/cells/cells-knitr.html</a></p>
+</section>
+<section id="chunks-can-be-named" class="level2">
+<h2 class="anchored" data-anchor-id="chunks-can-be-named">Chunks can be named</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/qmd-outline.png" class="img-fluid" style="width:80.0%" alt="A screenshot of a RMarkdown document inside RStudio. The screenshot highlights the automatically generated document  outline for each chunk name."></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Useful for troubleshooting (ie <em>where</em> is the document failing on render)</li>
+</ul>
+<pre><code>label: unnamed-chunk-23
+  |..............................|  83%
+  ordinary text without R code
+  |..............................|  85%
+label: unnamed-chunk-24 (with options) 
+List of 2
+ $ fig.dim: num [1:2] 6 4
+ $ dpi    : num 150
+  |..............................|  86%
+  ordinary text without R code</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="our-turn-2" class="level1" data-background-color="#447099" data-transition="slide-in">
+<h1 data-background-color="#447099" data-transition="slide-in"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg> Our Turn</h1>
+<ul>
+<li>Open RStudio and <code>materials/workshop/broken-notebook</code></li>
+<li>Try to render it, see the errors</li>
+<li>Fix the errors by finding their named chunks and then render again!</li>
+</ul>
+<section id="chunk-names-good-and-bad" class="level2">
+<h2 class="anchored" data-anchor-id="chunk-names-good-and-bad">Chunk names, good and bad</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="good" class="level3">
+<h3 class="anchored" data-anchor-id="good">Good</h3>
+<ul>
+<li><code>chunk</code></li>
+<li><code>myChunk</code></li>
+<li><code>my-chunk</code></li>
+<li><code>mychunk1</code></li>
+</ul>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="bad" class="level3">
+<h3 class="anchored" data-anchor-id="bad">Bad</h3>
+<p>(These <em>will</em> fail)</p>
+<ul>
+<li><code>my_chunk</code></li>
+<li><code>my chunk</code></li>
+</ul>
+</section>
+</div>
+</div>
+</section>
+<section id="working-with-code" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-code">Working with code</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mpg <span class="sc">&gt;=</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
+</div>
+</div>
+</section>
+<section id="working-with-code-1" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-code-1">Working with code</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>mpg_cars <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mpg <span class="sc">&gt;=</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="working-with-code-2" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-code-2">Working with code</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>mpg_cars <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mpg <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>mpg_cars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
+</div>
+</div>
+</section>
+<section id="working-with-code-3" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-code-3">Working with code</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: mpg-cars</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>mpg_cars <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mpg <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>mpg_cars</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="working-with-code-4" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-code-4">Working with code</h2>
+<div class="sourceCode" id="cb38"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: mpg-cars</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>                mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="section-2" class="level1" data-background-image="https://d33wubrfki0l68.cloudfront.net/e798975ba0fc742c8e682a62edb0d41e8bf090ac/c620e/blog/rstudio-conf-2022-virtual/thumbnail_hu31b0245616fb8a6872183a9ec865f49c_657330_2220x0_resize_q75_box.jpg" data-background-size="cover">
+<h1 data-background-image="https://d33wubrfki0l68.cloudfront.net/e798975ba0fc742c8e682a62edb0d41e8bf090ac/c620e/blog/rstudio-conf-2022-virtual/thumbnail_hu31b0245616fb8a6872183a9ec865f49c_657330_2220x0_resize_q75_box.jpg" data-background-size="cover"></h1>
+<p><span style="color: white; font-size: 150px;">Editors</span></p>
+<section id="rstudio-quick-intro" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-quick-intro">RStudio, quick intro</h2>
+<ul>
+<li>Use R Projects, i.e.&nbsp;a <code>.RProj</code></li>
+<li>Overview of panes</li>
+<li>Overview of R Console vs Terminal</li>
+<li>Overview of Quarto, output inline vs output to pane</li>
+</ul>
+</section>
+<section id="navigating-in-the-terminal" class="level2">
+<h2 class="anchored" data-anchor-id="navigating-in-the-terminal">Navigating in the terminal</h2>
+<p>Because Quarto is a command line interface (CLI), there are times you’ll need to use it via the terminal. A great overview of using the command line and navigating files/directories is available via the <a href="https://datacarpentry.org/shell-genomics/02-the-filesystem/index.html">Data Carpentries</a> or a great interactive tool for understanding commands: <a href="https://tldr.ostera.io" class="uri">https://tldr.ostera.io</a></p>
+<div class="incremental">
+<table class="table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pwd</code></td>
+<td>Print name of current working directory</td>
+</tr>
+<tr class="even">
+<td><code>cd</code></td>
+<td>Change current working directory</td>
+</tr>
+<tr class="odd">
+<td><code>ls</code></td>
+<td>List directory contents</td>
+</tr>
+<tr class="even">
+<td><code>quarto --help</code></td>
+<td>Return <code>quarto</code> help docs</td>
+</tr>
+<tr class="odd">
+<td><code>mkdir howdy</code></td>
+<td>Make a new folder/directory called “howdy”</td>
+</tr>
+<tr class="even">
+<td><code>rm howdy/some-file.qmd</code> | Remove</td>
+<td>a file called <code>some-file.qmd</code> from the “howdy” folder</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio">RStudio</h2>
+<p>RStudio has deep integration with R, <code>knitr</code> and Quarto</p>
+<ul>
+<li>Render button</li>
+<li>Visual Editor</li>
+<li>Preview of output</li>
+</ul>
+<div class="incremental">
+<p>You should <em>always</em> be using a recent release of the RStudio IDE - especially for the Quarto features.</p>
+<p>RStudio <code>2022.07.1</code> and beyond comes bundled with a production-stable release of Quarto, no additional install needed!</p>
+</div>
+</section>
+<section id="yaml-auto-completion" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-auto-completion">YAML Auto-completion</h2>
+<p>Quarto + RStudio provides a rich YAML auto-completion based on text.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co">    #toc-location: body</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="incremental">
+<p><img src="images/yaml-autocomplete.gif" style="height:50.0%"> ## YAML Auto-completion</p>
+<p>To find all the available options for a YAML section, you can use <kbd><code>Ctrl + Space</code></kbd></p>
+<p><img src="images/yaml-ctrl.gif" class="img-fluid"></p>
+</div>
+</section>
+<section id="knitr-auto-completion" class="level2">
+<h2 class="anchored" data-anchor-id="knitr-auto-completion"><code>knitr</code> auto-completion</h2>
+<p>You can use tab-completion inside <code>knitr</code> chunk options for RMarkdown style or Quarto style as well.</p>
+<p><img src="images/knitr-autocomplete.gif" class="img-fluid"></p>
+</section>
+<section id="rstudio-visual-editor" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-visual-editor">RStudio Visual Editor</h2>
+<p><img src="https://quarto.org/docs/visual-editor/images/visual-editing.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="our-turn-3" class="level1" data-background-color="#447099" data-transition="slide-in">
+<h1 data-background-color="#447099" data-transition="slide-in"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg> Our turn</h1>
+<ul>
+<li>Open <code>materials/workshop/03-authoring/visual-editor.qmd</code></li>
+<li>Explore the UI elements and visual editor mode</li>
+<li>Turn Visual Editor mode on/off and explore the sections</li>
+<li>Render the document and compare the viewer to Visual Mode!</li>
+</ul>
+<section id="vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code">VS Code</h2>
+<p><img src="https://quarto.org/docs/tools/images/vscode-render.png" class="img-fluid"></p>
+</section>
+<section id="vs-code-yaml" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code-yaml">VS Code YAML</h2>
+<p><img src="https://quarto.org/docs/tools/images/vscode-raw.png" class="img-fluid"></p>
+</section>
+<section id="vs-code-yaml-intelligence" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code-yaml-intelligence">VS Code, YAML Intelligence</h2>
+<p><img src="https://quarto.org/docs/tools/images/vscode-yaml-completion.png" class="img-fluid"></p>
+</section>
+<section id="jupyterjupyter-lab" class="level2">
+<h2 class="anchored" data-anchor-id="jupyterjupyter-lab">Jupyter/Jupyter Lab</h2>
+<p><img src="https://quarto.org/docs/tools/images/jupyter-lab.png" class="img-fluid"></p>
+</section>
+<section id="jupyter" class="level2">
+<h2 class="anchored" data-anchor-id="jupyter">Jupyter</h2>
+<p><code>quarto preview notebook.ipynb --to html</code></p>
+<p><img src="https://quarto.org/docs/tools/images/jupyterlab-preview.png" class="img-fluid"></p>
+</section>
+<section id="jupyter-yaml" class="level2">
+<h2 class="anchored" data-anchor-id="jupyter-yaml">Jupyter YAML</h2>
+<p>Treat YAML as a “raw cell” in Jupyter - Jupyter doesn’t care about YAML, but it’s needed/used by Quarto</p>
+<p><img src="https://quarto.org/docs/tools/images/jupyter-lab-yaml.png" class="img-fluid"></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

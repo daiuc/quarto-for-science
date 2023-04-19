@@ -1,0 +1,331 @@
+---
+format: 
+  revealjs:
+    slide-number: true
+    width: 1500
+    height: 1000
+    footer: "[Quarto for Science]"
+    css: ["theme/theme.css"]
+    theme: simple
+editor: source
+---
+
+##  {background-image="images/chuttersnap-UmncJq4KPcA-unsplash.jpg" background-position="left"}
+
+
+<h1>Quarto for Science</h1>
+
+<br>
+
+<h2>Reproducible Data Analysis</h2>
+
+<h3>
+`r Sys.Date()`
+</h3>
+
+<br>
+
+::: footer
+
+:::
+
+## We will learn
+
+<br><br>
+
+> What is reproducible data analysis?
+
+. . . 
+
+> Why you should learn Quarto for science!
+
+
+## What is reproducible data analysis?
+
+\
+To achieve reproducible research we need reproducible analysis!
+
+\
+
+That means you need: 
+
+> reproducible environment
+
+
+> version control
+
+> clear documentation
+
+> automated work flow ...
+
+## But really, you just want to know: 
+
+\
+
+> what the heck did I do last week?
+ 
+> where did my data go?
+
+> I thought I already did this analysis, but how?
+
+
+## Hello Quarto
+
+> Quarto is an open-source scientific and technical publishing system built on [Pandoc](https://pandoc.org/)
+
+> If you haven't heard of Quarto, perhaps you know about rstudio
+
+\
+\
+
+<h2>Literate Programming</h2>
+
+> You can weave together narrative text and code in one document (`.qmd`) to produce multiple output as pdf, word documents, web pages, blog posts, presentation slides, thesis, books and more.
+
+
+
+## What is Quarto?
+
+> Quarto® is an open-source scientific and technical publishing system built on Pandoc
+
+> A Quarto document i.e. a `.qmd` is a plain text file, like a `.rmd`, that can be rendered to many different formats
+
+![](https://quarto.org/docs/get-started/hello/images/rstudio-source-visual.png){width="1200px" fig-align="center" fig-alt="A screenshot of a Visual and Source Quarto document"}
+
+## You can write in one .qmd file but output in multiple format simutaneously!
+\
+\
+Useful formats for scientific writing: 
+
+* html (publish your analysis on GitHub!)
+* pdf (publish that paper in Nature!)
+* book (ready for your thesis?)
+
+
+
+
+
+
+## Anatomy of a Quarto document
+
+-   Metadata (YAML)
+
+``` yaml
+---
+format: html
+---
+```
+
+. . .
+
+-   Code
+
+```{r}
+#| echo: fenced
+#| eval: true
+library(dplyr)
+mtcars %>% 
+  group_by(cyl) %>%
+  summarize(mean = mean(mpg), .groups = "drop")
+```
+
+. . .
+
+-   Text
+
+``` markdown
+# Heading 1
+This is a sentence with some **bold text**, some *italic text* and an [image](image.png).
+```
+
+## Metadata: YAML
+
+The [YAML](https://yaml.org/) metadata or header is:
+
+> processed in many stages of the rendering process and can influence the final document in many different ways. It is placed at the very beginning of the document and is read by each of Pandoc, Quarto and `knitr`. Along the way, the information that it contains can affect the code, content, and the rendering process.
+
+## YAML
+
+``` yaml
+---
+title: "My Document"
+format: 
+  html:
+    toc: true
+    code-fold: true
+---
+```
+
+## Markdown
+
+> Quarto is based on Pandoc and uses its variation of markdown as its underlying document syntax. Pandoc markdown is an extended and slightly revised version of John Gruber's [Markdown](https://daringfireball.net/projects/markdown/) syntax.
+
+. . .
+
+> Markdown is a plain text format that is designed to be easy to write, and, even more importantly, easy to read
+
+## Text Formatting
+
++-----------------------------------+-------------------------------+
+| Markdown Syntax                   | Output                        |
++===================================+===============================+
+| ```                               | *italics* and **bold**        |
+| *italics* and **bold**            |                               |
+| ```                               |                               |
++-----------------------------------+-------------------------------+
+| ```                               | superscript^2^ / subscript~2~ |
+| superscript^2^ / subscript~2~     |                               |
+| ```                               |                               |
++-----------------------------------+-------------------------------+
+| ```                               | ~~strikethrough~~             |
+| ~~strikethrough~~                 |                               |
+| ```                               |                               |
++-----------------------------------+-------------------------------+
+| ```                               | `verbatim code`               |
+| `verbatim code`                   |                               |
+| ```                               |                               |
++-----------------------------------+-------------------------------+
+
+## Headings
+
++--------------------+-----------------+
+| Markdown Syntax    | Output          |
++====================+=================+
+| ```                | # Header 1      |
+| # Header 1         |                 |
+| ```                |                 |
++--------------------+-----------------+
+| ```                | ## Header 2     |
+| ## Header 2        |                 |
+| ```                |                 |
++--------------------+-----------------+
+| ```                | ### Header 3    |
+| ### Header 3       |                 |
+| ```                |                 |
++--------------------+-----------------+
+| ```                | #### Header 4   |
+| #### Header 4      |                 |
+| ```                |                 |
++--------------------+-----------------+
+| ```                | ##### Header 5  |
+| ##### Header 5     |                 |
+| ```                |                 |
++--------------------+-----------------+
+| ```                | ###### Header 6 |
+| ###### Header 6    |                 |
+| ```                |                 |
++--------------------+-----------------+
+
+## Code
+
+```{r}
+#| echo: fenced
+#| output-location: column
+#| label: fig-airquality
+#| fig-cap: Temperature and ozone level.
+#| warning: false
+
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "loess"
+)
+```
+
+## Code, more than just R
+
+::: columns
+::: {.column width="50%"}
+```` python
+```{{python}}
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+````
+:::
+
+::: {.column width="50%"}
+![](images/polar-axis.png){width="650px"}
+:::
+:::
+
+## Rendering
+
+1.  Render in RStudio
+
+![](https://quarto.org/docs/tools/images/rstudio-render.png){fig-alt="A screenshot of the render button in RStudio"}
+
+. . .
+
+2.  System shell via `quarto render`
+
+```{bash}
+#| eval: false
+#| echo: true
+quarto render document.qmd # defaults to html
+quarto render document.qmd --to pdf
+quarto render document.qmd --to docx
+```
+
+
+## Results
+
+::: {.panel-tabset}
+
+### pdf - paper
+
+![](images/pdf-eg1.png)
+
+
+### website
+
+![](images/web-eg1.png)
+
+
+### pdf - cv
+
+![](images/cv-pic.png)
+
+:::
+
+::: footer
+
+:::
+
+
+## 
+
+<h1>To recap</h1>
+
+\
+\
+
+<h3> Quick demo </h3>
+
+. . . 
+
+\
+
+<h3>Hopefully, I convinvced you to learn quarto and literate programming to make your research more reproducible.</h3>
+
+
+## 
+
+<h1>Thank you!</h1>
+
+
+

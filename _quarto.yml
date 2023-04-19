@@ -1,0 +1,31 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!materials/workshop/"
+
+website:
+  title: "Quarto for science"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Teaching
+        menu: 
+          - href: materials/intro-to-quarto.qmd
+            text: "Quarto for Science"
+  sidebar: 
+    style: docked
+    contents: 
+      - section: "Teaching"
+        contents: 
+          - href: materials/intro-to-quarto.qmd
+            text: "Quarto for Science"
+
+format:
+  html:
+    theme: 
+      - litera
+      - style.css
+    toc: true
