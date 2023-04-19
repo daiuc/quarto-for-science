@@ -288,17 +288,17 @@ quarto render document.qmd --to docx
 
 ### pdf - paper
 
-![](images/pdf-eg1.png)
+![](images/pdf-eg1.png){width=60%}
 
 
 ### website
 
-![](images/web-eg1.png)
+![](images/web-eg1.png){width=60%}
 
 
 ### pdf - cv
 
-![](images/cv-pic.png)
+![](images/cv-pic.png){width=60%}
 
 :::
 
