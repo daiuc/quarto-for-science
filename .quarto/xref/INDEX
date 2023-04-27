@@ -49,5 +49,12 @@
   },
   "materials/test-layout.qmd": {
     "test-layout.html": "3a24b124"
+  },
+  "404.qmd": {
+    "404.html": "7a964067"
+  },
+  "demo.qmd": {
+    "demo.html": "3d2d9b61",
+    "demo.tex": "61560cd4"
   }
 }

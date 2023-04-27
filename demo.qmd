@@ -1,0 +1,93 @@
+---
+title: "Penguins!"
+author: "Mumble"
+date: today
+csl: "nature.csl"
+bibliography: 'Quarto for Science.bib'
+execute: 
+  echo: false
+  warning: false
+  message: false
+format: 
+  html:
+    toc: true
+    mainfont: 'Georgia'
+  pdf:
+    toc: false
+    number-sections: false
+    papersize: letter
+    geometry: 
+      - top = 2cm
+      - bottom = 2cm
+      - left = 2cm
+      - right = 2cm
+    colorlinks: true
+    indent: true
+    mainfont: Baskerville
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+suppressMessages(library(tidyverse))
+suppressMessages(library(palmerpenguins))
+theme_set(theme_light())
+```
+
+## Penguins are fun!
+
+Lorem lobortis etiam cursus ornare viverra; id turpis arcu lobortis arcu per. Magnis sollicitudin viverra euismod mattis nulla natoque, inceptos iaculis sapien. Erat sapien cubilia tristique ultrices eu senectus sociosqu risus eleifend. Cursus vel vel enim fusce, pulvinar ligula[@gormanEcologicalSexualDimorphism2014].
+
+## Penguin summary
+
+Sit laoreet ante sociis tempor consequat[@lterStructuralSizeMeasurements2020c], vestibulum dis hac metus interdum auctor. Nostra faucibus ad duis interdum! Taciti enim sagittis sagittis ante -- curabitur feugiat cursus? Eros fringilla pretium ultricies massa venenatis tempus egestas pellentesque: blandit pretium potenti accumsan arcu nam as listed in @tbl-summary.
+
+```{r}
+#| label: tbl-summary
+#| tbl-cap: "Penguin size, Palmer Station LTER"
+penguins |> 
+  group_by(species) |> 
+  summarise(across(where(is.numeric), mean, na.rm=T)) |> 
+  knitr::kable()
+```
+
+## Penguins are smart
+
+Adipiscing nam habitant -- tellus mus dictumst nam -- velit nisi tempor. Placerat praesent venenatis non curabitur hendrerit accumsan pellentesque congue faucibus. Habitant id volutpat vivamus et lacinia eros arcu venenatis sociosqu tempus? Tortor proin sem sem dapibus consequat cum sem, sodales, venenatis id.
+
+$$E = MC^2$$ {#eq-einstein}
+
+Penguin scientists have long figured out of @eq-einstein before Einstein! Lorem inceptos cum magnis conubia -- dictumst urna, urna tristique nostra cursus! Litora dictumst cubilia leo -- cubilia accumsan suscipit, a ullamcorper sodales aliquam scelerisque! Laoreet suspendisse accumsan nec taciti vestibulum purus, tortor parturient mollis, quisque habitant aliquam. Varius a gravida porttitor blandit habitant.
+
+## Bill length and depth
+
+Ipsum eget massa a nam nostra, nostra metus urna ad eget. Vivamus dui lacus iaculis justo nascetur quam ut ornare mollis. Fusce a habitasse fermentum, class vivamus sagittis lobortis per. Luctus diam nostra habitant condimentum cras: sollicitudin nec convallis, integer in tortor potenti quam vel metus elementum in @fig-bill.
+
+```{r}
+#| label: fig-bill
+#| fig-cap: "Penguin bills"
+#| out-width: "50%"
+
+knitr::include_graphics("materials/images/culmen_depth.png")
+```
+
+
+Ipsum eget massa a nam nostra, @fig-bill-scatter nostra metus urna ad eget. Vivamus dui lacus iaculis justo nascetur quam ut ornare mollis. Fusce a habitasse fermentum, class vivamus sagittis lobortis per. Luctus diam nostra habitant condimentum cras: sollicitudin nec convallis, integer in tortor potenti quam vel metus elementum.
+
+```{r}
+#| label: fig-bill-scatter
+#| fig-cap: "Bill length and depth"
+#| out-width: "50%"
+penguins |> 
+  ggplot(aes(bill_length_mm, bill_depth_mm, color = species, shape = species)) +
+    geom_point() +
+    labs(x = "Bill length (mm", y = "Bill depth (mm)")
+
+
+```
+### PDF report
+
+Elit aliquam dis mattis tortor mattis non, integer luctus facilisis! Diam purus mattis integer, est, primis nisi eget nulla tristique proin gravida cras. PDF link [here](docs/demo.pdf).
+
+## Reference

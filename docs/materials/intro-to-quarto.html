@@ -398,7 +398,7 @@ Quarto for Science
 Reproducible Data Analysis
 </h2>
 <h3>
-2023-04-18
+2023-04-27
 </h3>
 <p><br></p>
 <div class="footer">
@@ -409,71 +409,90 @@ Reproducible Data Analysis
 <h2>We will learn</h2>
 <p><br><br></p>
 <blockquote>
-<p>What is reproducible data analysis?</p>
+<p>What is reproducible data analysis</p>
 </blockquote>
-<div class="fragment">
 <blockquote>
-<p>Why you should learn Quarto for science!</p>
+<p>What is literate programming and why it is useful for scientists</p>
 </blockquote>
-</div>
+<blockquote>
+<p>Write a Quarto document</p>
+</blockquote>
 </section>
 <section id="what-is-reproducible-data-analysis" class="slide level2">
 <h2>What is reproducible data analysis?</h2>
 <p><br>
-To achieve reproducible research we need reproducible analysis!</p>
+Goals:</p>
+<ul>
+<li>validate your results</li>
+<li>keep track of your progress from initial analysis to final manuscript ready figures</li>
+<li>allow other researchers to use your data and code and reproduce your results</li>
+</ul>
 <p><br>
 </p>
-<p>That means you need:</p>
+<p>Key aspects of reproducible data analysis:</p>
+<ul>
+<li>reproducible environment (e.g.&nbsp;R, Python, Julia, etc.)</li>
+<li>version control (e.g.&nbsp;git)</li>
+<li>clear documentation (e.g.&nbsp;README, code comments, etc.)</li>
+<li>automated workflow (e.g.&nbsp;snakemake)</li>
+</ul>
+</section>
+<section id="whats-your-experience" class="slide level2">
+<h2>What’s your experience?</h2>
+<p><br>
+</p>
 <blockquote>
-<p>reproducible environment</p>
+<p>How did you communicate your work to your PI or lab mates / classmates?</p>
 </blockquote>
+<p><br></p>
 <blockquote>
-<p>version control</p>
-</blockquote>
-<blockquote>
-<p>clear documentation</p>
-</blockquote>
-<blockquote>
-<p>automated work flow …</p>
+<p>What paint points did you encounter in data analysis, scientific writing?</p>
 </blockquote>
 </section>
-<section id="but-really-you-just-want-to-know" class="slide level2">
-<h2>But really, you just want to know:</h2>
+<section id="lots-of-scenarios" class="slide level2">
+<h2>Lots of scenarios …</h2>
 <p><br>
 </p>
 <blockquote>
-<p>what the heck did I do last week?</p>
+<p>How did I make this figure?</p>
 </blockquote>
 <blockquote>
-<p>where did my data go?</p>
+<p>Where did I get this data?</p>
 </blockquote>
 <blockquote>
-<p>I thought I already did this analysis, but how?</p>
+<p>The figures in my manuscript are out of date, how do I update them?</p>
+</blockquote>
+<blockquote>
+<p>My lab mate wants to do the same analysis (e.g.&nbsp;differential gene expression), how do I share it with them?</p>
 </blockquote>
 </section>
 <section id="hello-quarto" class="slide level2">
 <h2>Hello Quarto</h2>
 <blockquote>
+<p>If you haven’t heard of Quarto, perhaps you know about rstudio from Quantitative Analysis Bootcamp.</p>
+</blockquote>
+<blockquote>
 <p>Quarto is an open-source scientific and technical publishing system built on <a href="https://pandoc.org/">Pandoc</a></p>
 </blockquote>
 <blockquote>
-<p>If you haven’t heard of Quarto, perhaps you know about rstudio</p>
+<p>Quarto is a new way to write documents that are:</p>
+<ul>
+<li>reproducible</li>
+<li>interactive</li>
+</ul>
 </blockquote>
 <p><br>
 <br>
 </p>
-<h2>
-Literate Programming
-</h2>
+</section>
+<section id="literate-programming" class="slide level2">
+<h2>Literate Programming</h2>
 <blockquote>
 <p>You can weave together narrative text and code in one document (<code>.qmd</code>) to produce multiple output as pdf, word documents, web pages, blog posts, presentation slides, thesis, books and more.</p>
 </blockquote>
 </section>
 <section id="what-is-quarto" class="slide level2">
 <h2>What is Quarto?</h2>
-<blockquote>
-<p>Quarto® is an open-source scientific and technical publishing system built on Pandoc</p>
-</blockquote>
 <blockquote>
 <p>A Quarto document i.e.&nbsp;a <code>.qmd</code> is a plain text file, like a <code>.rmd</code>, that can be rendered to many different formats</p>
 </blockquote>
@@ -486,9 +505,10 @@ Literate Programming
 Useful formats for scientific writing:</p>
 <ul>
 <li>html (publish your analysis on GitHub!)</li>
-<li>pdf (publish that paper in Nature!)</li>
+<li>pdf (wrap up that paper!)</li>
 <li>book (ready for your thesis?)</li>
 </ul>
+<p>All of these formats can be rendered from the same <code>.qmd</code> file! And they look great out of the box usually!</p>
 </section>
 <section id="anatomy-of-a-quarto-document" class="slide level2">
 <h2>Anatomy of a Quarto document</h2>
@@ -586,14 +606,18 @@ Useful formats for scientific writing:</p>
 <td><pre><code>`verbatim code`</code></pre></td>
 <td><code>verbatim code</code></td>
 </tr>
+<tr class="odd">
+<td><pre><code>math symbols and equations</code></pre></td>
+<td><span class="math inline">\(Y=\beta_0 + \beta_1 X\)</span></td>
+</tr>
 </tbody>
 </table>
 </section>
 <section id="headings" class="slide level2">
 <h2>Headings</h2>
-<table style="width:54%;">
+<table style="width:51%;">
 <colgroup>
-<col style="width: 29%">
+<col style="width: 26%">
 <col style="width: 25%">
 </colgroup>
 <thead>
@@ -634,19 +658,19 @@ Useful formats for scientific writing:</p>
 <h2>Code</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="co">#| output-location: column</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="co">#| label: fig-airquality</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="co">#| fig-cap: Temperature and ozone level.</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="co">#| warning: false</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb16-8"><a href="#cb16-8"></a></span>
-<span id="cb16-9"><a href="#cb16-9"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
-<span id="cb16-10"><a href="#cb16-10"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb16-11"><a href="#cb16-11"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span></span>
-<span id="cb16-12"><a href="#cb16-12"></a>)</span>
-<span id="cb16-13"><a href="#cb16-13"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1"></a><span class="in">```{r}</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="co">#| output-location: column</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="co">#| label: fig-airquality</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="co">#| fig-cap: Temperature and ozone level.</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="co">#| warning: false</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a></span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-8"><a href="#cb17-8"></a></span>
+<span id="cb17-9"><a href="#cb17-9"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
+<span id="cb17-10"><a href="#cb17-10"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb17-11"><a href="#cb17-11"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span></span>
+<span id="cb17-12"><a href="#cb17-12"></a>)</span>
+<span id="cb17-13"><a href="#cb17-13"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div id="fig-airquality" class="quarto-figure quarto-figure-center">
@@ -663,23 +687,23 @@ Useful formats for scientific writing:</p>
 <h2>Code, more than just R</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>```{python}</span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="co">#| label: fig-polar</span></span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="co">#| fig-cap: "A line plot on a polar axis"</span></span>
-<span id="cb17-4"><a href="#cb17-4"></a></span>
-<span id="cb17-5"><a href="#cb17-5"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb17-6"><a href="#cb17-6"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb17-7"><a href="#cb17-7"></a></span>
-<span id="cb17-8"><a href="#cb17-8"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
-<span id="cb17-9"><a href="#cb17-9"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
-<span id="cb17-10"><a href="#cb17-10"></a>fig, ax <span class="op">=</span> plt.subplots(</span>
-<span id="cb17-11"><a href="#cb17-11"></a>  subplot_kw <span class="op">=</span> {<span class="st">'projection'</span>: <span class="st">'polar'</span>} </span>
-<span id="cb17-12"><a href="#cb17-12"></a>)</span>
-<span id="cb17-13"><a href="#cb17-13"></a>ax.plot(theta, r)</span>
-<span id="cb17-14"><a href="#cb17-14"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
-<span id="cb17-15"><a href="#cb17-15"></a>ax.grid(<span class="va">True</span>)</span>
-<span id="cb17-16"><a href="#cb17-16"></a>plt.show()</span>
-<span id="cb17-17"><a href="#cb17-17"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>```{python}</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="co">#| label: fig-polar</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="co">#| fig-cap: "A line plot on a polar axis"</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb18-7"><a href="#cb18-7"></a></span>
+<span id="cb18-8"><a href="#cb18-8"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
+<span id="cb18-9"><a href="#cb18-9"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
+<span id="cb18-10"><a href="#cb18-10"></a>fig, ax <span class="op">=</span> plt.subplots(</span>
+<span id="cb18-11"><a href="#cb18-11"></a>  subplot_kw <span class="op">=</span> {<span class="st">'projection'</span>: <span class="st">'polar'</span>} </span>
+<span id="cb18-12"><a href="#cb18-12"></a>)</span>
+<span id="cb18-13"><a href="#cb18-13"></a>ax.plot(theta, r)</span>
+<span id="cb18-14"><a href="#cb18-14"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
+<span id="cb18-15"><a href="#cb18-15"></a>ax.grid(<span class="va">True</span>)</span>
+<span id="cb18-16"><a href="#cb18-16"></a>plt.show()</span>
+<span id="cb18-17"><a href="#cb18-17"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <p><img data-src="images/polar-axis.png" width="650"></p>
 </div>
@@ -696,9 +720,9 @@ Useful formats for scientific writing:</p>
 <li>System shell via <code>quarto render</code></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="ex">quarto</span> render document.qmd <span class="co"># defaults to html</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="ex">quarto</span> render document.qmd <span class="at">--to</span> pdf</span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="ex">quarto</span> render document.qmd <span class="at">--to</span> docx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="ex">quarto</span> render document.qmd <span class="co"># defaults to html</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="ex">quarto</span> render document.qmd <span class="at">--to</span> pdf</span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="ex">quarto</span> render document.qmd <span class="at">--to</span> docx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -722,28 +746,42 @@ Useful formats for scientific writing:</p>
 
 </div>
 </section>
-<section id="section-1" class="slide level2">
+<section id="section-1" class="slide level2" data-background-image="images/paper-texture.jpg" data-background-position="left">
 <h2></h2>
-<h1>
-To recap
-</h1>
 <p><br>
 <br>
 </p>
-<h3>
+<h2 style="text-align: center;">
 Quick demo
-</h3>
+</h2>
 <div class="fragment">
 <p><br>
 </p>
-<h3>
-Hopefully, I convinvced you to learn quarto and literate programming to make your research more reproducible.
-</h3>
 </div>
 </section>
-<section id="section-2" class="slide level2">
+<section id="recap" class="slide level2">
+<h2>Recap</h2>
+<p><br>
+</p>
+<h4 id="reproducible-data-analysis">Reproducible data analysis</h4>
+<ul>
+<li>reproducible environment</li>
+<li>version control</li>
+<li>clear documentation</li>
+<li>automated workflow</li>
+</ul>
+<h4 id="literate-programming-1">Literate programming</h4>
+<ul>
+<li>Weave together code and text to create a single document that contains all of the information needed to understand the analysis and its results.</li>
+</ul>
+<h4 id="use-quarto-and-markdown">Use quarto and markdown!</h4>
+</section>
+<section id="section-2" class="slide level2" data-background-image="images/chuttersnap-UmncJq4KPcA-unsplash.jpg" data-background-position="left">
 <h2></h2>
-<h1>
+<p><br>
+<br>
+</p>
+<h1 style="text-align: center;">
 Thank you!
 </h1>
 

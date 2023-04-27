@@ -15,6 +15,8 @@ website:
         menu: 
           - href: materials/intro-to-quarto.qmd
             text: "Quarto for Science"
+          - href: demo.qmd
+            text: "Demo"
   sidebar: 
     style: docked
     contents: 

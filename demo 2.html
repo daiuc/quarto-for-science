@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Quarto for science – custom-layout</title>
+<title>Quarto for science - demo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -59,6 +78,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -69,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Quarto for science</span>
     </a>
   </div>
@@ -79,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html">
+    <a class="nav-link" href="./index.html">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -88,11 +108,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="../../materials/intro-to-quarto.html">
+    <a class="dropdown-item" href="./materials/intro-to-quarto.html">
  <span class="dropdown-text">Quarto for Science</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../demo.qmd">
+    <a class="dropdown-item" href="./demo.html">
  <span class="dropdown-text">Demo</span></a>
   </li>  
     </ul>
@@ -104,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"></h1>
+      <h1 class="quarto-secondary-nav-title">demo</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -127,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/intro-to-quarto.html" class="sidebar-item-text sidebar-link">Quarto for Science</a>
+  <a href="./materials/intro-to-quarto.html" class="sidebar-item-text sidebar-link">Quarto for Science</a>
   </div>
 </li>
       </ul>
@@ -141,177 +161,73 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#layout11-1" id="toc-layout11-1" class="nav-link active" data-scroll-target="#layout11-1"><code>layout="[[1,1], [1]]"</code></a></li>
-  <li><a href="#layout7030-100" id="toc-layout7030-100" class="nav-link" data-scroll-target="#layout7030-100"><code>layout="[[70,30], [100]]"</code></a></li>
-  <li><a href="#layout40-2040-100" id="toc-layout40-2040-100" class="nav-link" data-scroll-target="#layout40-2040-100"><code>layout="[[40,-20,40], [100]]"</code></a></li>
-  <li><a href="#layout25-210-layout-valignbottom" id="toc-layout25-210-layout-valignbottom" class="nav-link" data-scroll-target="#layout25-210-layout-valignbottom"><code>layout="[25,-2,10]" layout-valign="bottom"</code></a></li>
+  <li><a href="#penguins-are-fun" id="toc-penguins-are-fun" class="nav-link active" data-scroll-target="#penguins-are-fun">Penguins are fun!</a></li>
+  <li><a href="#penguin-size" id="toc-penguin-size" class="nav-link" data-scroll-target="#penguin-size">Penguin size</a></li>
+  <li><a href="#penguins-are-smart" id="toc-penguins-are-smart" class="nav-link" data-scroll-target="#penguins-are-smart">Penguins are smart</a></li>
+  <li><a href="#flipper-length" id="toc-flipper-length" class="nav-link" data-scroll-target="#flipper-length">Flipper length</a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">demo</h1>
+</div>
 
 
-<section id="layout11-1" class="level2">
-<h2 class="anchored" data-anchor-id="layout11-1"><code>layout="[[1,1], [1]]"</code></h2>
-<pre><code>::: {layout="[[1,1], [1]]"}
-![Howard sleeping](images/howard-glamour.jpg)
 
-![Howard in a table](images/howard-table.png)
+<div class="quarto-title-meta">
 
-![Howard on a couch](images/howard-comfy.png)
-:::</code></pre>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/howard-glamour.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Howard sleeping</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/howard-table.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Howard in a table</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/howard-comfy.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Howard on a couch</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="penguins-are-fun" class="level2">
+<h2 class="anchored" data-anchor-id="penguins-are-fun">Penguins are fun!</h2>
+<p>Lorem lobortis etiam cursus ornare viverra; id turpis arcu lobortis arcu per. Magnis sollicitudin viverra euismod mattis nulla natoque, inceptos iaculis sapien. Erat sapien cubilia tristique ultrices eu senectus sociosqu risus eleifend. Cursus vel vel enim fusce, pulvinar ligula<span class="citation" data-cites="gormanEcologicalSexualDimorphism2014"><sup><a href="#ref-gormanEcologicalSexualDimorphism2014" role="doc-biblioref">1</a></sup></span>.</p>
+<p>Lorem cras est tincidunt class id sapien? Mollis mus nunc primis dignissim vehicula eleifend. Blandit quis ante pulvinar volutpat netus, senectus senectus felis, placerat et nisi. Magna nostra rhoncus convallis – nunc, lectus lectus phasellus convallis ullamcorper sociis curabitur arcu pharetra ultrices natoque dis ullamcorper.</p>
+</section>
+<section id="penguin-size" class="level2">
+<h2 class="anchored" data-anchor-id="penguin-size">Penguin size</h2>
+<p>Lorem placerat molestie ridiculus molestie porttitor ullamcorper tellus nam nec? Blandit suscipit litora class aptent vehicula iaculis, blandit pharetra auctor pretium eleifend! Lobortis porttitor – posuere ultrices aenean accumsan nisi; integer, luctus fringilla cum himenaeos et interdum! Natoque aenean est?</p>
+<p>Sit laoreet ante sociis tempor consequat<span class="citation" data-cites="lterStructuralSizeMeasurements2020c"><sup><a href="#ref-lterStructuralSizeMeasurements2020c" role="doc-biblioref">2</a></sup></span>, vestibulum dis hac metus interdum auctor. Nostra faucibus ad duis interdum! Taciti enim sagittis sagittis ante – curabitur feugiat cursus? Eros fringilla pretium ultricies massa venenatis tempus egestas pellentesque: blandit pretium potenti accumsan arcu nam.</p>
+<p>Consectetur pulvinar id non ac, volutpat conubia nulla. Lacus quam aliquam donec semper, habitant elementum litora. Magna ultrices aliquet, gravida pharetra quam? Fames vitae dapibus a magnis auctor malesuada porta: lacinia, dui fringilla, pulvinar augue eros, nisi morbi a: sem aliquam litora fermentum eget conubia ac est consequat.</p>
+</section>
+<section id="penguins-are-smart" class="level2">
+<h2 class="anchored" data-anchor-id="penguins-are-smart">Penguins are smart</h2>
+<p>Adipiscing nam habitant – tellus mus dictumst nam – velit nisi tempor. Placerat praesent venenatis non curabitur hendrerit accumsan pellentesque congue faucibus. Habitant id volutpat vivamus et lacinia eros arcu venenatis sociosqu tempus? Tortor proin sem sem dapibus consequat cum sem, sodales, venenatis id.</p>
+<p><span id="eq-einstein"><span class="math display">\[E = MC^2 \tag{1}\]</span></span></p>
+<p>Penguin scientists have long figured out of <a href="#eq-einstein">Equation&nbsp;1</a> before Einstein! Lorem inceptos cum magnis conubia – dictumst urna, urna tristique nostra cursus! Litora dictumst cubilia leo – cubilia accumsan suscipit, a ullamcorper sodales aliquam scelerisque! Laoreet suspendisse accumsan nec taciti vestibulum purus, tortor parturient mollis, quisque habitant aliquam. Varius a gravida porttitor blandit habitant.</p>
+</section>
+<section id="flipper-length" class="level2">
+<h2 class="anchored" data-anchor-id="flipper-length">Flipper length</h2>
+<p>Ipsum eget massa a nam nostra, nostra metus urna ad eget. Vivamus dui lacus iaculis justo nascetur quam ut ornare mollis. Fusce a habitasse fermentum, class vivamus sagittis lobortis per. Luctus diam nostra habitant condimentum cras: sollicitudin nec convallis, integer in tortor potenti quam vel metus elementum.</p>
+<div class="cell">
+
 </div>
 </section>
-<section id="layout7030-100" class="level2">
-<h2 class="anchored" data-anchor-id="layout7030-100"><code>layout="[[70,30], [100]]"</code></h2>
-<pre><code>::: {layout="[[70,30], [100]]"}
+<section id="reference" class="level2">
 
-![Howard on a couch](images/howard-comfy.png)
 
-![Howard sleeping](images/boston-sleep.png)
-
-![Howard in a table](images/howard-table.png)
-:::</code></pre>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/howard-comfy.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Howard on a couch</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/boston-sleep.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Howard sleeping</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/howard-table.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Howard in a table</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="layout40-2040-100" class="level2">
-<h2 class="anchored" data-anchor-id="layout40-2040-100"><code>layout="[[40,-20,40], [100]]"</code></h2>
-<pre><code>::: {layout="[[40,-20,40], [100]]"}
-![Howard on a couch](images/howard-comfy.png)
-
-![Howard sleeping](images/howard-glamour.jpg)
-
-![Howard in a table](images/howard-table.png)
-:::</code></pre>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/howard-comfy.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Howard on a couch</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 20.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/howard-glamour.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Howard sleeping</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/howard-table.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Howard in a table</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="layout25-210-layout-valignbottom" class="level2">
-<h2 class="anchored" data-anchor-id="layout25-210-layout-valignbottom"><code>layout="[25,-2,10]" layout-valign="bottom"</code></h2>
-<pre><code>::: {layout="[25,-2,10]" layout-valign="bottom"}
-![Howard on a couch](images/howard-comfy.png)
-
-![Howard in a table](images/howard-table.png)
-:::</code></pre>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 67.6%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/howard-comfy.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Howard on a couch</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 5.4%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 27.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/howard-table.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Howard in a table</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Reference</h2><div id="refs" class="references csl-bib-body" data-line-spacing="2" role="doc-bibliography">
+<div id="ref-gormanEcologicalSexualDimorphism2014" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Gorman, K. B., Williams, T. D. &amp; Fraser, W. R. <a href="https://doi.org/10.1371/journal.pone.0090081">Ecological <span>Sexual Dimorphism</span> and <span>Environmental Variability</span> within a <span>Community</span> of <span>Antarctic Penguins</span> (<span>Genus Pygoscelis</span>)</a>. <em>PLOS ONE</em> <strong>9</strong>, e90081 (2014).</div>
+</div>
+<div id="ref-lterStructuralSizeMeasurements2020c" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">LTER, P. S. A. &amp; Gorman, K. Structural size measurements and isotopic signatures of foraging among adult male and female <span>Chinstrap</span> penguin (<span>Pygoscelis</span> antarctica) nesting along the <span>Palmer Archipelago</span> near <span>Palmer Station</span>, 2007-2009. (2020) doi:<a href="https://doi.org/10.6073/PASTA/C14DFCFADA8EA13A17536E73EB6FBE9E">10.6073/PASTA/C14DFCFADA8EA13A17536E73EB6FBE9E</a>.</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

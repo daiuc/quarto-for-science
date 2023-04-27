@@ -7,11 +7,10 @@ format:
     footer: "[Quarto for Science]"
     css: ["theme/theme.css"]
     theme: simple
-editor: source
+editor: visual
 ---
 
 ##  {background-image="images/chuttersnap-UmncJq4KPcA-unsplash.jpg" background-position="left"}
-
 
 <h1>Quarto for Science</h1>
 
@@ -19,89 +18,104 @@ editor: source
 
 <h2>Reproducible Data Analysis</h2>
 
-<h3>
-`r Sys.Date()`
-</h3>
+<h3>`r Sys.Date()`</h3>
 
 <br>
 
 ::: footer
-
 :::
 
 ## We will learn
 
 <br><br>
 
-> What is reproducible data analysis?
+> What is reproducible data analysis
 
-. . . 
+> What is literate programming and why it is useful for scientists
 
-> Why you should learn Quarto for science!
-
+> Write a Quarto document
 
 ## What is reproducible data analysis?
 
 \
-To achieve reproducible research we need reproducible analysis!
+Goals:
+
+- validate your results
+- keep track of your progress from initial analysis to final manuscript ready figures
+- allow other researchers to use your data and code and reproduce your results
 
 \
 
-That means you need: 
+Key aspects of reproducible data analysis:
 
-> reproducible environment
+- reproducible environment (e.g. R, Python, Julia, etc.)
+- version control (e.g. git)
+- clear documentation (e.g. README, code comments, etc.)
+- automated workflow (e.g. snakemake)
 
 
-> version control
-
-> clear documentation
-
-> automated work flow ...
-
-## But really, you just want to know: 
+## What's your experience?
 
 \
 
-> what the heck did I do last week?
- 
-> where did my data go?
+> How did you communicate your work to your PI or lab mates / classmates?
 
-> I thought I already did this analysis, but how?
+<br>
+
+> What paint points did you encounter in data analysis, scientific writing?
+
+
+## Lots of scenarios ...
+
+\
+
+> How did I make this figure?
+
+> Where did I get this data?
+
+> The figures in my manuscript are out of date, how do I update them?
+
+> My lab mate wants to do the same analysis (e.g. differential gene expression), how do I share it with them?
+
+
 
 
 ## Hello Quarto
 
+
+> If you haven't heard of Quarto, perhaps you know about rstudio from Quantitative Analysis Bootcamp.
+
 > Quarto is an open-source scientific and technical publishing system built on [Pandoc](https://pandoc.org/)
 
-> If you haven't heard of Quarto, perhaps you know about rstudio
+> Quarto is a new way to write documents that are:
+> 
+> - reproducible
+> - interactive
 
 \
 \
 
-<h2>Literate Programming</h2>
+## Literate Programming
 
 > You can weave together narrative text and code in one document (`.qmd`) to produce multiple output as pdf, word documents, web pages, blog posts, presentation slides, thesis, books and more.
 
-
-
 ## What is Quarto?
-
-> Quarto® is an open-source scientific and technical publishing system built on Pandoc
 
 > A Quarto document i.e. a `.qmd` is a plain text file, like a `.rmd`, that can be rendered to many different formats
 
 ![](https://quarto.org/docs/get-started/hello/images/rstudio-source-visual.png){width="1200px" fig-align="center" fig-alt="A screenshot of a Visual and Source Quarto document"}
 
 ## You can write in one .qmd file but output in multiple format simutaneously!
+
 \
 \
-Useful formats for scientific writing: 
+Useful formats for scientific writing:
 
-* html (publish your analysis on GitHub!)
-* pdf (publish that paper in Nature!)
-* book (ready for your thesis?)
+-   html (publish your analysis on GitHub!)
+-   pdf (wrap up that paper!)
+-   book (ready for your thesis?)
 
-
+All of these formats can be rendered from the same `.qmd` file! And they look great out of the box usually!
 
 
 
@@ -185,36 +199,41 @@ format:
 | `verbatim code`                   |                               |
 | ```                               |                               |
 +-----------------------------------+-------------------------------+
+| ```                               |    $Y=\beta_0 + \beta_1 X$    |
+| math symbols and equations        |                               |
+| ```                               |                               |
++-----------------------------------+-------------------------------+
+
 
 ## Headings
 
-+--------------------+-----------------+
-| Markdown Syntax    | Output          |
-+====================+=================+
-| ```                | # Header 1      |
-| # Header 1         |                 |
-| ```                |                 |
-+--------------------+-----------------+
-| ```                | ## Header 2     |
-| ## Header 2        |                 |
-| ```                |                 |
-+--------------------+-----------------+
-| ```                | ### Header 3    |
-| ### Header 3       |                 |
-| ```                |                 |
-+--------------------+-----------------+
-| ```                | #### Header 4   |
-| #### Header 4      |                 |
-| ```                |                 |
-+--------------------+-----------------+
-| ```                | ##### Header 5  |
-| ##### Header 5     |                 |
-| ```                |                 |
-+--------------------+-----------------+
-| ```                | ###### Header 6 |
-| ###### Header 6    |                 |
-| ```                |                 |
-+--------------------+-----------------+
++------------------+-----------------+
+| Markdown Syntax  | Output          |
++==================+=================+
+| ```              | # Header 1      |
+| # Header 1       |                 |
+| ```              |                 |
++------------------+-----------------+
+| ```              | ## Header 2     |
+| ## Header 2      |                 |
+| ```              |                 |
++------------------+-----------------+
+| ```              | ### Header 3    |
+| ### Header 3     |                 |
+| ```              |                 |
++------------------+-----------------+
+| ```              | #### Header 4   |
+| #### Header 4    |                 |
+| ```              |                 |
++------------------+-----------------+
+| ```              | ##### Header 5  |
+| ##### Header 5   |                 |
+| ```              |                 |
++------------------+-----------------+
+| ```              | ###### Header 6 |
+| ###### Header 6  |                 |
+| ```              |                 |
++------------------+-----------------+
 
 ## Code
 
@@ -281,51 +300,56 @@ quarto render document.qmd --to pdf
 quarto render document.qmd --to docx
 ```
 
-
 ## Results
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ### pdf - paper
 
-![](images/pdf-eg1.png){width=60%}
-
+![](images/pdf-eg1.png){width="60%"}
 
 ### website
 
-![](images/web-eg1.png){width=60%}
-
+![](images/web-eg1.png){width="60%"}
 
 ### pdf - cv
 
-![](images/cv-pic.png){width=60%}
-
+![](images/cv-pic.png){width="60%"}
 :::
 
 ::: footer
-
 :::
 
-
-## 
-
-<h1>To recap</h1>
+## {background-image="images/paper-texture.jpg" background-position="left"}
 
 \
 \
 
-<h3> Quick demo </h3>
+<h2 style="text-align: center;">Quick demo</h1>
 
-. . . 
+. . .
 
 \
 
-<h3>Hopefully, I convinvced you to learn quarto and literate programming to make your research more reproducible.</h3>
+## Recap 
+
+\
+
+#### Reproducible data analysis
+
+- reproducible environment
+- version control
+- clear documentation
+- automated workflow
+
+#### Literate programming 
+
+- Weave together code and text to create a single document that contains all of the information needed to understand the analysis and its results.
+
+#### Use quarto and markdown!
 
 
-## 
+##  {background-image="images/chuttersnap-UmncJq4KPcA-unsplash.jpg" background-position="left"}
+\
+\
 
-<h1>Thank you!</h1>
-
-
-
+<h1 style="text-align: center;">Thank you!</h1>
