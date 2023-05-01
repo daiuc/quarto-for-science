@@ -4,6 +4,8 @@ project:
   render:
     - "*.qmd"
     - "!materials/workshop/"
+  preview: 
+    port: 9955
 
 website:
   title: "Quarto for science"

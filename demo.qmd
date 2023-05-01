@@ -24,6 +24,7 @@ format:
     colorlinks: true
     indent: true
     mainfont: Baskerville
+editor: visual
 ---
 
 ```{r}
@@ -46,6 +47,8 @@ Sit laoreet ante sociis tempor consequat[@lterStructuralSizeMeasurements2020c], 
 ```{r}
 #| label: tbl-summary
 #| tbl-cap: "Penguin size, Palmer Station LTER"
+#| echo: true
+#| code-fold: show
 penguins |> 
   group_by(species) |> 
   summarise(across(where(is.numeric), mean, na.rm=T)) |> 
@@ -72,7 +75,6 @@ Ipsum eget massa a nam nostra, nostra metus urna ad eget. Vivamus dui lacus iacu
 knitr::include_graphics("materials/images/culmen_depth.png")
 ```
 
-
 Ipsum eget massa a nam nostra, @fig-bill-scatter nostra metus urna ad eget. Vivamus dui lacus iaculis justo nascetur quam ut ornare mollis. Fusce a habitasse fermentum, class vivamus sagittis lobortis per. Luctus diam nostra habitant condimentum cras: sollicitudin nec convallis, integer in tortor potenti quam vel metus elementum.
 
 ```{r}
@@ -86,6 +88,7 @@ penguins |>
 
 
 ```
+
 ### PDF report
 
 Elit aliquam dis mattis tortor mattis non, integer luctus facilisis! Diam purus mattis integer, est, primis nisi eget nulla tristique proin gravida cras. PDF link [here](docs/demo.pdf).

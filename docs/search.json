@@ -277,7 +277,7 @@
     "href": "demo.html#penguin-summary",
     "title": "Penguins!",
     "section": "Penguin summary",
-    "text": "Penguin summary\nSit laoreet ante sociis tempor consequat2, vestibulum dis hac metus interdum auctor. Nostra faucibus ad duis interdum! Taciti enim sagittis sagittis ante – curabitur feugiat cursus? Eros fringilla pretium ultricies massa venenatis tempus egestas pellentesque: blandit pretium potenti accumsan arcu nam as listed in Table 1.\n\n\n\n\nTable 1: Penguin size, Palmer Station LTER\n\n\n\n\n\n\n\n\n\n\nspecies\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nyear\n\n\n\n\nAdelie\n38.79139\n18.34636\n189.9536\n3700.662\n2008.013\n\n\nChinstrap\n48.83382\n18.42059\n195.8235\n3733.088\n2007.971\n\n\nGentoo\n47.50488\n14.98211\n217.1870\n5076.016\n2008.081"
+    "text": "Penguin summary\nSit laoreet ante sociis tempor consequat2, vestibulum dis hac metus interdum auctor. Nostra faucibus ad duis interdum! Taciti enim sagittis sagittis ante – curabitur feugiat cursus? Eros fringilla pretium ultricies massa venenatis tempus egestas pellentesque: blandit pretium potenti accumsan arcu nam as listed in Table 1.\n\n\nCode\npenguins |> \n  group_by(species) |> \n  summarise(across(where(is.numeric), mean, na.rm=T)) |> \n  knitr::kable()\n\n\n\n\nTable 1: Penguin size, Palmer Station LTER\n\n\n\n\n\n\n\n\n\n\nspecies\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nyear\n\n\n\n\nAdelie\n38.79139\n18.34636\n189.9536\n3700.662\n2008.013\n\n\nChinstrap\n48.83382\n18.42059\n195.8235\n3733.088\n2007.971\n\n\nGentoo\n47.50488\n14.98211\n217.1870\n5076.016\n2008.081"
   },
   {
     "objectID": "demo.html#bill-length-and-depth",

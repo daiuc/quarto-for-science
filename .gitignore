@@ -1,3 +1,6 @@
 /.quarto/
-
 /.luarc.json
+.quarto
+*DS_Store*
+**/*DS_Store*
+
